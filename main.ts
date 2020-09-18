@@ -21,6 +21,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     dinoSpeed = 70
     dino.vx = dinoSpeed
 })
+let playerYPos = 0
 let playerXPos = 0
 let myEnemy: Sprite = null
 let pewSpeed = 0
@@ -64,10 +65,10 @@ game.onUpdate(function () {
     pewSpeed = dinoSpeed + 100
     myEnemy.follow(dino)
     playerXPos = dino.x + 150
+    playerYPos = dino.y + -5
 })
-game.onUpdateInterval(1000, function () {
-    pause(1000)
-    myEnemy = sprites.create(img`
+game.onUpdateInterval(5000, function () {
+    myEnemy = sprites.createProjectileFromSide(img`
         ........................
         ........................
         ........................
@@ -92,6 +93,6 @@ game.onUpdateInterval(1000, function () {
         ........................
         ........................
         ........................
-        `, SpriteKind.Enemy)
-    myEnemy.setPosition(playerXPos, 7)
+        `, -50, 0)
+    myEnemy.setPosition(playerXPos, playerYPos)
 })
