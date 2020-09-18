@@ -1,0 +1,27 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="KIND_SpriteKind" id="lV:YJBd6%Lm)#%h%z]8;">Player</variable><variable type="KIND_SpriteKind" id="Dqd(L%l-y,KP,!9F[WvL">Projectile</variable><variable type="KIND_SpriteKind" id="hQ!P$?X1eY.b5CX4[/Jo">Food</variable><variable type="KIND_SpriteKind" id="UEs#3{QMAe$-a#gklY0K">Enemy</variable><variable id="QEine0kVG[8EJInUQ!If">dino</variable><variable id="vA4CoYDO:TYjw!tBv}qq">mySprite</variable><variable id="ks^#G%?JbJru=Z#UR!7n">gravity</variable><variable id="0~g,67Lz+li2`FuzWdf?">PixelsToMeters</variable><variable id="|3`V0;kHoDJ~Ux~XV/bQ">PlayerStartPlace</variable></variables><block type="keyonevent" id="D.?677`2ks2u`HyEd=Xg" x="570" y="0"><field name="button">controller.A</field><field name="event">ControllerButtonEvent.Pressed</field></block><block type="pxt-on-start" id="*S`#)I8FvW,nByO9#=OG" x="0" y="30"><statement name="HANDLER"><block type="gamesetbackgroundcolor" id="%-UU;${gf%oGMuR2w,eq"><value name="color"><shadow type="colorindexpicker" id="ohuCT{J#!aO=-rLr2H##"><field name="index">5</field></shadow></value><next><block type="variables_set" id="uP]nq?/B)BNPgN=`.a1h"><field name="VAR" id="QEine0kVG[8EJInUQ!If">dino</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="Z+T1y8eB3+2n,s]jIqh*"><value name="img"><shadow type="screen_image_picker" id="xjeD8NVLR[!~KMW+J6,u"><field name="img">img`
+. . . . . . . . . . . . . 
+. . . f f f f f f . . . . 
+. f f f f f f f f f . . . 
+. f f f f f f c f f f . . 
+f f f f c f f f c f f f . 
+f c f f c c f f f c c f f 
+f c c f f f f e f f f f f 
+f f f f f f f e e f f f . 
+f f e e f b f e e f f f . 
+f f e 4 e 1 f 4 4 f f . . 
+. f f f e 4 4 4 4 f . . . 
+. 4 4 4 e e e e f f . . . 
+. e 4 4 e 7 7 7 7 f . . . 
+. f e e f 6 6 6 6 f f . . 
+. f f f f f f f f f f . . 
+. . f f . . . f f f . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="M;/,e.Wjrd|+XOiiT@r*"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="game_control_sprite" id="NNhyvzyhDb;9D@3xvN4g"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="sprite"><block type="variables_get" id="YH87mYt:/;YB{7+q3#Np"><field name="VAR" id="QEine0kVG[8EJInUQ!If">dino</field></block></value><next><block type="variables_set" id="xmr~6$SN0RHsjL@mpP_6"><field name="VAR" id="0~g,67Lz+li2`FuzWdf?">PixelsToMeters</field><value name="VALUE"><shadow type="math_number" id="fedA4#6p?PUX=Ptz1R`,"><field name="NUM">30</field></shadow></value><next><block type="variables_set" id="+Pt?13ERvZd_bDxxY9xK"><field name="VAR" id="ks^#G%?JbJru=Z#UR!7n">gravity</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="math_arithmetic" id="z?S!_Voh|E]suZFp|f9("><field name="OP">MULTIPLY</field><value name="A"><shadow type="math_number" id="T=md;YWJ{L/_3eaxAxoK"><field name="NUM">9.8</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="variables_get" id="lC:}%H18aU1{e(e4VL_o"><field name="VAR" id="0~g,67Lz+li2`FuzWdf?">PixelsToMeters</field></block></value></block></value><next><block type="tilemap_editor" id="5E(@id!nR{GW~Ks#:z#@"><field name="tilemap">tiles.createTilemap(hex`0a0008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101010101010101010102020202020202020202`, img`
+. . . . . . . . . . 
+. . . . . . . . . . 
+. . . . . . . . . . 
+. . . . . . . . . . 
+. . . . . . . . . . 
+. . . . . . . . . . 
+2 2 2 2 2 2 2 2 2 2 
+2 2 2 2 2 2 2 2 2 2 
+`, [myTiles.transparency16,sprites.castle.tilePath2,sprites.castle.tilePath5], TileScale.Sixteen)</field><next><block type="variables_set" id="a,6O$6p,mz!f_+,8y99w"><field name="VAR" id="|3`V0;kHoDJ~Ux~XV/bQ">PlayerStartPlace</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="mapgettilestype" id="/$/}^i9Ma/wf;]0Xs2q|"><value name="tile"><shadow type="tileset_tile_picker" id="d?SNz:KlKo$ltdoph3pr"><field name="tile">myTiles.transparency16</field></shadow></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>
