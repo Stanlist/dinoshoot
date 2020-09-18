@@ -2,7 +2,8 @@
     "name": "DinoShoot",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "keyboard": "*"
     },
     "files": [
         "main.blocks",

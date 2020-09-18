@@ -1,4 +1,4 @@
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (dino.isHittingTile(CollisionDirection.Bottom)) {
         dino.vy = -200
     }
@@ -21,9 +21,9 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     dinoSpeed = 70
     dino.vx = dinoSpeed
 })
+let myEnemy: Sprite = null
 let playerYPos = 0
 let playerXPos = 0
-let myEnemy: Sprite = null
 let pewSpeed = 0
 let projectile: Sprite = null
 let dinoSpeed = 0
@@ -63,9 +63,9 @@ scene.cameraFollowSprite(dino)
 let enemyGravity = 500
 game.onUpdate(function () {
     pewSpeed = dinoSpeed + 100
-    myEnemy.follow(dino)
     playerXPos = dino.x + 150
     playerYPos = dino.y + -5
+    myEnemy.follow(dino)
 })
 game.onUpdateInterval(5000, function () {
     myEnemy = sprites.createProjectileFromSide(img`
@@ -93,6 +93,5 @@ game.onUpdateInterval(5000, function () {
         ........................
         ........................
         ........................
-        `, -50, 0)
-    myEnemy.setPosition(playerXPos, playerYPos)
+        `, -26, 0)
 })
