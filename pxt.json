@@ -4,8 +4,7 @@
     "dependencies": {
         "device": "*",
         "keyboard": "*",
-        "controller": "*",
-        "color-coded-tilemap": "*"
+        "controller": "*"
     },
     "files": [
         "main.blocks",
@@ -24,5 +23,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
