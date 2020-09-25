@@ -34,6 +34,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         animation.setAction(dino, ActionKind.Blaster)
     } else {
         animation.setAction(dino, ActionKind.Sword)
+        swordAttack()
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -41,6 +42,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         dino.vy = -200
     }
 })
+function swordAttack () {
+    SwordDamage = 1
+    pause(200)
+    SwordDamage = 0
+}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 35
     LastSpeed = 35
@@ -53,11 +59,16 @@ info.onLifeZero(function () {
     game.over(false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player2, enemy) {
-    info.changeLifeBy(-1)
-    enemy.destroy()
+    if (true) {
+        info.changeLifeBy(-1)
+        enemy.destroy()
+    } else {
+    	
+    }
 })
 let myEnemy: Sprite = null
 let LastSpeed = 0
+let SwordDamage = 0
 let projectile: Sprite = null
 let pewSpeed = 0
 let wepSelect = 0
