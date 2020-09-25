@@ -1,5 +1,4 @@
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    let pewSpeed = dino.vx + 100
     projectile = sprites.createProjectileFromSprite(img`
         . . 6 6 6 6 . . 
         . 6 d 4 4 4 6 . 
@@ -14,27 +13,31 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         dino.vy = -200
     }
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 35
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Projectile, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 70
 })
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    myEnemy.destroy()
+})
 info.onLifeZero(function () {
     game.over(false)
 })
+let playerYPos = 0
+let playerXPos = 0
+let myEnemy: Sprite = null
+let pewSpeed = 0
+let projectile: Sprite = null
+let dino: Sprite = null
 info.setLife(3)
 scene.setBackgroundColor(5)
 tiles.setTilemap(tilemap`level_0`)
-let myEnemy: Sprite = null
-
-
-let projectile: Sprite = null
-let dino: Sprite = null
-
 dino = sprites.create(img`
     . . . . . . . . . . . . . 
     . . . f f f f f f . . . . 
@@ -54,14 +57,16 @@ dino = sprites.create(img`
     . . f f . . . f f f . . . 
     `, SpriteKind.Player)
 dino.ay = 500
-
+scene.cameraFollowSprite(dino)
+let enemyGravity = 500
 game.onUpdate(function () {
-    scene.centerCameraAt(dino.x+scene.screenWidth()/2 -10, 0)
-        
+    pewSpeed = dino.vx + 100
+    playerXPos = dino.x + 150
+    playerYPos = dino.y + -5
     myEnemy.follow(dino)
 })
 game.onUpdateInterval(5000, function () {
-    myEnemy = sprites.create(img`
+    myEnemy = sprites.createProjectileFromSide(img`
         ........................
         ........................
         ........................
@@ -86,7 +91,5 @@ game.onUpdateInterval(5000, function () {
         ........................
         ........................
         ........................
-        `, SpriteKind.Enemy)
-    myEnemy.x = scene.screenWidth()
-    myEnemy.y = 0
+        `, -26, 0)
 })
