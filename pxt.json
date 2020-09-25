@@ -5,7 +5,8 @@
         "device": "*",
         "keyboard": "*",
         "controller": "*",
-        "animation": "*"
+        "animation": "*",
+        "palette": "*"
     },
     "files": [
         "main.blocks",
@@ -19,7 +20,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.2.6",
+        "target": "1.3.3",
         "targetId": "arcade"
     },
     "supportedTargets": [
