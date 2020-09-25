@@ -20,6 +20,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 70
 })
+
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player2, enemy) {
     info.changeLifeBy(-1)
     enemy.destroy()
@@ -35,11 +36,11 @@ info.onLifeZero(function () {
 })
 let myEnemy: Sprite = null
 let projectile: Sprite = null
-
-let dino: Sprite = null
 info.setLife(3)
 scene.setBackgroundColor(5)
 tiles.setTilemap(tilemap`level_0`)
+let dino: Sprite = null
+
 dino = sprites.create(img`
     ...........ff........
     ..........ffff.......
@@ -67,6 +68,7 @@ dino = sprites.create(img`
     `, SpriteKind.Player)
 dino.ay = 500
 game.onUpdate(function () {
+    dino.vx = 70
     scene.centerCameraAt(dino.x + scene.screenWidth() / 2 - 10, 0)
     myEnemy.follow(dino, 50)
 })
