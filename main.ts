@@ -1,5 +1,5 @@
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    pewSpeed = dino.vx + 100
+    let pewSpeed = dino.vx + 100
     projectile = sprites.createProjectileFromSprite(img`
         . . 6 6 6 6 . . 
         . 6 d 4 4 4 6 . 
@@ -35,7 +35,7 @@ info.onLifeZero(function () {
 })
 let myEnemy: Sprite = null
 let projectile: Sprite = null
-let pewSpeed = 0
+
 let dino: Sprite = null
 info.setLife(3)
 scene.setBackgroundColor(5)
