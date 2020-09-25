@@ -14,9 +14,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         dino.vy = -200
     }
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player, enemy) {
     info.changeLifeBy(-1)
+    enemy.destroy()
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (bullet, enemy) {
+    enemy.destroy()
+    bullet.destroy()
+})
+
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 35
 })
@@ -84,6 +90,6 @@ game.onUpdateInterval(5000, function () {
         ........................
         ........................
         `, SpriteKind.Enemy)
-    myEnemy.x = 210
+    myEnemy.x = dino.x+210
     myEnemy.y = 40
 })
