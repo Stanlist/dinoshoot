@@ -17,25 +17,23 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, ot
     info.changeLifeBy(-1)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-   
     dino.vx = 35
 })
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {   
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 70
 })
 info.onLifeZero(function () {
     game.over(false)
 })
-info.setLife(3)
-scene.setBackgroundColor(5)
-tiles.setTilemap(tilemap`level_0`)
 let myEnemy: Sprite = null
 let playerYPos = 0
 let playerXPos = 0
 let pewSpeed = 0
 let projectile: Sprite = null
 let dino: Sprite = null
-
+info.setLife(3)
+scene.setBackgroundColor(5)
+tiles.setTilemap(tilemap`level_0`)
 dino = sprites.create(img`
     . . . . . . . . . . . . . 
     . . . f f f f f f . . . . 
