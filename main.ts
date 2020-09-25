@@ -43,9 +43,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 35
+    LastSpeed = 35
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 70
+    LastSpeed = 70
 })
 info.onLifeZero(function () {
     game.over(false)
@@ -55,6 +57,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player2, enemy)
     enemy.destroy()
 })
 let myEnemy: Sprite = null
+let LastSpeed = 0
 let projectile: Sprite = null
 let pewSpeed = 0
 let wepSelect = 0
@@ -414,6 +417,7 @@ animation.attachAnimation(dino, anim3)
 game.onUpdate(function () {
     scene.centerCameraAt(dino.x + scene.screenWidth() / 2 - 10, 0)
     myEnemy.follow(dino, 50)
+    dino.vx = LastSpeed
 })
 game.onUpdateInterval(5000, function () {
     myEnemy = sprites.create(img`
