@@ -1,5 +1,5 @@
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    let pewSpeed = dino.vx + 100
+    pewSpeed = dino.vx + 100
     projectile = sprites.createProjectileFromSprite(img`
         . . 6 6 6 6 . . 
         . 6 d 4 4 4 6 . 
@@ -14,26 +14,28 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         dino.vy = -200
     }
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player, enemy) {
-    info.changeLifeBy(-1)
-    enemy.destroy()
-})
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (bullet, enemy) {
-    enemy.destroy()
-    bullet.destroy()
-})
-
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 35
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     dino.vx = 70
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (player2, enemy) {
+    info.changeLifeBy(-1)
+    enemy.destroy()
+})
+
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (bullet, enemy) {
+    enemy.destroy()
+    bullet.destroy()
+})
+
 info.onLifeZero(function () {
     game.over(false)
 })
 let myEnemy: Sprite = null
 let projectile: Sprite = null
+let pewSpeed = 0
 let dino: Sprite = null
 info.setLife(3)
 scene.setBackgroundColor(5)
@@ -64,12 +66,10 @@ dino = sprites.create(img`
     .....ee...ee.........
     `, SpriteKind.Player)
 dino.ay = 500
-
 game.onUpdate(function () {
     scene.centerCameraAt(dino.x + scene.screenWidth() / 2 - 10, 0)
-    myEnemy.follow(dino,50)
+    myEnemy.follow(dino, 50)
 })
-
 game.onUpdateInterval(5000, function () {
     myEnemy = sprites.create(img`
         ........................
@@ -97,6 +97,6 @@ game.onUpdateInterval(5000, function () {
         ........................
         ........................
         `, SpriteKind.Enemy)
-    myEnemy.x = dino.x+210
-    myEnemy.y = 40
+    myEnemy.x = dino.x + 210
+    myEnemy.y = randint(40,85)
 })
