@@ -1,5 +1,5 @@
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    pewSpeed = dino.vx + 100
+    let pewSpeed = dino.vx + 100
     projectile = sprites.createProjectileFromSprite(img`
         . . 6 6 6 6 . . 
         . 6 d 4 4 4 6 . 
@@ -28,7 +28,6 @@ info.onLifeZero(function () {
 })
 let myEnemy: Sprite = null
 let projectile: Sprite = null
-let pewSpeed = 0
 let dino: Sprite = null
 info.setLife(3)
 scene.setBackgroundColor(5)
@@ -52,10 +51,12 @@ dino = sprites.create(img`
     . . f f . . . f f f . . . 
     `, SpriteKind.Player)
 dino.ay = 500
+
 game.onUpdate(function () {
     scene.centerCameraAt(dino.x + scene.screenWidth() / 2 - 10, 0)
-    myEnemy.follow(dino)
+    myEnemy.follow(dino,50)
 })
+
 game.onUpdateInterval(5000, function () {
     myEnemy = sprites.create(img`
         ........................
@@ -83,6 +84,6 @@ game.onUpdateInterval(5000, function () {
         ........................
         ........................
         `, SpriteKind.Enemy)
-    myEnemy.x = scene.screenWidth()
-    myEnemy.y = 0
+    myEnemy.x = 210
+    myEnemy.y = 40
 })
