@@ -60,7 +60,7 @@ let pewSpeed = 0
 let wepSelect = 0
 let dino: Sprite = null
 info.setLife(3)
-scene.setBackgroundColor(5)
+scene.setBackgroundImage(projectImages.background_dinoshoot)
 tiles.setTilemap(tilemap`level_0`)
 dino = sprites.create(img`
     ...........ff........
