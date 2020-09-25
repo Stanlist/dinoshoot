@@ -1,9 +1,4 @@
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (dino.isHittingTile(CollisionDirection.Bottom)) {
-        dino.vy = -200
-    }
-})
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
         . . 6 6 6 6 . . 
         . 6 d 4 4 4 6 . 
@@ -12,6 +7,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . c b b b d c . 
         . . c c c c . . 
         `, dino, pewSpeed, 0)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (dino.isHittingTile(CollisionDirection.Bottom)) {
+        dino.vy = -200
+    }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     dinoSpeed = 35

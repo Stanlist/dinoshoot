@@ -3,7 +3,8 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "keyboard": "*"
+        "keyboard": "*",
+        "controller": "*"
     },
     "files": [
         "main.blocks",
